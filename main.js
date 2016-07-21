@@ -1,3 +1,12 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.compass.getCurrentHeading);
+
+    var head = navigator.compass.getCurrentHeading;
+    document.getElementById("doDirection").innerHTML = Math.round(head);
+}
+
+
 if (window.DeviceOrientationEvent) {
   document.getElementById("doEvent").innerHTML = "DeviceOrientation";
   // Listen for the deviceorientation event and handle the raw data
@@ -15,8 +24,9 @@ if (window.DeviceOrientationEvent) {
     //deviceOrientationHandler(tiltLR, tiltFB, dir);
 
     document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
-document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
-document.getElementById("doDirection").innerHTML = Math.round(dir);
+	document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
+	document.getElementById("doDirection").innerHTML = Math.round(dir);
+
 
 // Apply the transform to the image
 var logo = document.getElementById("imgLogo");
